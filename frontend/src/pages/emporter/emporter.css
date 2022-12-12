@@ -1,0 +1,22 @@
+.card_title_text .content_holder .text_holder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.card_title_text .content_holder p {
+    font-size: var(--font-size_l);
+    position: relative;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card_title_text .content_holder .start {
+    width: 10px;
+    height: 10px;
+    background-color: var(--color_forth);
+    border-radius: 10px;
+    margin-right: 10px;
+}

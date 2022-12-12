@@ -1,0 +1,19 @@
+.circular_wrapper svg{
+    height:40%;
+    aspect-ratio: 1;
+    animation: float 3s ease-in-out infinite;
+    
+}
+
+.circular_wrapper{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+}
+
+.circular_wrapper h1{
+    text-align: center;
+}

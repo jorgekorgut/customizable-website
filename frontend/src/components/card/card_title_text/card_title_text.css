@@ -1,0 +1,30 @@
+.card_title_text{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: var(--color_background);
+    margin: var(--margin);
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    height: fit-content;
+}
+
+.card_title_text .title_holder{
+    margin: var(--margin);
+    position: relative;
+}
+
+.card_title_text .title_holder h1::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:10px;
+    background-color: var(--color_forth);
+    bottom: -10px;
+    left:0;
+    border-radius: 0 0 10px 10px;
+}
+
+.card_title_text .content_holder{
+    margin:var(--margin);
+}

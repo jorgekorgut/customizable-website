@@ -1,0 +1,6 @@
+.card_holder{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin:calc(2*var(--margin));
+}

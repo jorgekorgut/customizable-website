@@ -1,0 +1,37 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: white;
+    padding: var(--margin);
+    margin-top: auto;
+    width:calc(100% - 2*var(--margin));
+    font-size: var(--font-size_l);
+    color: var(--color_third);
+}
+
+.footer .content_holder a{
+    text-decoration: none;
+    color:inherit;
+}
+
+@media only screen and
+	(max-width:650px){
+    .footer{
+        align-items: center;
+    }
+
+    .footer .content_holder{
+        justify-content: center;
+        text-justify: center;
+    }
+
+    .footer .content_holder p{
+        text-align: center;
+    }
+}
+
+.footer .content_holder{
+    display: flex;
+    flex-wrap: wrap;
+}

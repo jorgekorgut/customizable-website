@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "parametres",
+  "info": {
+    "singularName": "parametre",
+    "pluralName": "parametres",
+    "displayName": "Parametres_Du_Site",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Temps_Pour_Changer_Photo_Pizza_Accueil_En_Secondes": {
+      "type": "decimal"
+    },
+    "Temps_Pour_Realiser_Transition_Accueil_En_Secondes": {
+      "type": "decimal"
+    }
+  }
+}

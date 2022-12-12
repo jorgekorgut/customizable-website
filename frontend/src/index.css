@@ -1,0 +1,59 @@
+#root{
+  color: var(--color_forth);  
+  --box-shadow: 1px 1px 10px var(--color_forth);
+}
+
+body {
+  margin: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.title_underline_holder h1{
+  color: var(--color_third);
+  display:flex;
+  font-weight: bold;
+  justify-content: left;
+  position: relative;
+  width:fit-content;
+  margin: 0;
+  padding:var(--margin);
+}
+
+.title_underline_holder h1::before{
+  position:absolute;
+  content:"";
+  width:125%;
+  height:10px;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0px 10px 0;
+  background-color: var(--color_third);
+}
+
+.title_underline_holder{
+  margin-top:calc(6*var(--margin));
+}
+
+.second{
+  display:flex;
+  margin: var(--margin);
+}
+
+
+#card_title_second{
+  justify-content: start;
+  align-items: center;
+  
+}
+
+.transition{
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+  justify-content: space-between;
+}
