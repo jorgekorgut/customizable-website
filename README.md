@@ -4,4 +4,5 @@
 	npm run develop
 
 # frontend 
+	npm install
 	npm start
