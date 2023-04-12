@@ -26,6 +26,7 @@
     justify-content: var(--alignAdjust,flex-start);
     max-width:var(--maxwidthAdjust,none);
     flex-wrap: var(--wrapAdjust);
+    align-items: center;
 }
 
 .card_wide .description{

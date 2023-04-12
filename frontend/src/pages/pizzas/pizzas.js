@@ -74,7 +74,7 @@ export function Pizzas() {
     let adress = etablissement.attributes.Adresse;
 
     let pizzasBase = [];
-    let hasFilterResults = true;
+    let hasMomentResults = false;
 
     if (isCremeActive) {
         pizzasBase = pizzasBase.concat(filterPizzasCreme(pizzasDefault)).unique();
@@ -89,7 +89,11 @@ export function Pizzas() {
         pizzasMenu = pizzasMenu.concat(filterPizzasEnfant(pizzasDefault)).unique();
     }
     if (isMomentActive) {
-        pizzasMenu = pizzasMenu.concat(filterPizzasMoment(pizzasDefault)).unique();
+        let pizzaMomentList = filterPizzasMoment(pizzasDefault);
+        if(pizzaMomentList.length !== 0){
+            hasMomentResults = true;
+            pizzasMenu = pizzasMenu.concat(pizzaMomentList).unique();
+        }
     }
 
     let pizzas = [];
@@ -101,8 +105,7 @@ export function Pizzas() {
         pizzas = pizzasMenu;
     }
 
-    if (pizzas.length === 0) {
-        hasFilterResults = false;
+    if (pizzas.length === 0 && !isMomentActive) {
         pizzas = pizzasDefault;
     }
 
@@ -128,9 +131,9 @@ export function Pizzas() {
                     </div>
                 </div>
                 {
-                    !hasFilterResults &&
+                    !hasMomentResults && isMomentActive &&
                     <div className="filter_response_holder">
-                        <p><strong>Affichage de toute la carte...</strong></p>
+                        <p><strong>Pizza du moment n'est pas disponible actuellement...</strong></p>
                     </div>
                 }
                 <CardHolder>

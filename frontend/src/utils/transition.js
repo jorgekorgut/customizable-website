@@ -6,7 +6,7 @@ const animationConfiguration = {
 };
 const Transitions = ({ children, className }) => {
     return (
-        <motion.div className={className}
+        <motion.div className={className + " transition"} 
             variants={animationConfiguration}
             initial="initial"
             animate="animate"

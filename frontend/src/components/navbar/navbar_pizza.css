@@ -53,6 +53,22 @@ header a{
 }
 
 header a:hover{
-    color: var(--color_second);
+    color: var(--color_third);
     text-decoration: underline;
+}
+
+.pizzas{
+    color: var(--color_red);
+}
+
+.emporter{
+    color: var(--color_green);
+}
+
+.cocktails{
+    color: var(--color_red);
+}
+
+.fournisseurs{
+    color: var(--color_green);
 }

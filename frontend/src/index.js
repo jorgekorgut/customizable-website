@@ -56,18 +56,18 @@ root.render(
 
 function Index() {
 
-  [window.loadingEtablissement, window.errorEtablissement, window.dataEtablissement] = useFetch("api/etablissement",window.dataEtablissement);
-  [window.loadingOuverture, window.errorOuverture, window.dataOuverture] = useFetch("api/ouvertures",window.dataOuverture);
-  [window.loadingSuppliers, window.errorSuppliers, window.dataSuppliers] = useFetch("api/fournisseurs?populate=*",window.dataSuppliers);
-  [window.loadingPizza, window.errorPizza, window.dataPizza] = useFetch("api/pizzas?populate=*",window.dataPizza);
-  [window.loadingParameters, window.errorParameters, window.dataParameters] = useFetch("api/parametre",window.dataParameters);
+  [window.loadingEtablissement, window.errorEtablissement, window.dataEtablissement] = useFetch("api/etablissement", window.dataEtablissement);
+  [window.loadingOuverture, window.errorOuverture, window.dataOuverture] = useFetch("api/ouvertures", window.dataOuverture);
+  [window.loadingSuppliers, window.errorSuppliers, window.dataSuppliers] = useFetch("api/fournisseurs?populate=*", window.dataSuppliers);
+  [window.loadingPizza, window.errorPizza, window.dataPizza] = useFetch("api/pizzas?populate=*", window.dataPizza);
+  [window.loadingParameters, window.errorParameters, window.dataParameters] = useFetch("api/parametre", window.dataParameters);
 
   if (window.errorEtablissement || window.errorOuverture || window.errorSuppliers || window.errorPizza || window.errorParameters) {
     return <p>Error.</p>;
   }
 
   if (window.loadingEtablissement || window.loadingOuverture || window.loadingSuppliers || window.loadingPizza || window.loadingParameters) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   let pizzas = window.dataPizza.data;
@@ -87,8 +87,8 @@ function Index() {
   let deliveryRadius = etablissement.attributes.Rayon_De_Livraison_En_Km;
   let latInput = etablissement.attributes.Latitude;
   let lngInput = etablissement.attributes.Longitude;
-  let interval = parameters.attributes.Temps_Pour_Changer_Photo_Pizza_Accueil_En_Secondes*1000;
-  let transitionTime = parameters.attributes.Temps_Pour_Realiser_Transition_Accueil_En_Secondes*1000;
+  let interval = parameters.attributes.Temps_Pour_Changer_Photo_Pizza_Accueil_En_Secondes * 1000;
+  let transitionTime = parameters.attributes.Temps_Pour_Realiser_Transition_Accueil_En_Secondes * 1000;
 
   let center = {
     lat: latInput,
@@ -106,9 +106,9 @@ function Index() {
   });
 
   return <>
-    <Transitions>
+    <Transitions className={"transition"}>
       <NavigationBarHeader />
-      <Carousel urlImages={pizzasMainPage} timeToChangeMs={interval} transitionTimeMs={transitionTime}/>
+      <Carousel urlImages={pizzasMainPage} timeToChangeMs={interval} transitionTimeMs={transitionTime} />
       <CardHolder>
         <CardTitle title="Où sommes nous">
           <Map zoom={zoomInput} center={center}>
@@ -118,28 +118,37 @@ function Index() {
             >
             </Marker>
           </Map>
-          <p>Livraison assuré dans un rayon de {deliveryRadius} km.</p>
+          {
+            deliveryRadius !== null &&
+            <p>Livraison assuré dans un rayon de {deliveryRadius} km.</p>
+          }
+          
         </CardTitle>
-        <CardTitlePasserCommande pizzas={pizzasMainPage} openingTime={openingTime} etablissement={etablissement}  showOpening={true} imageContact = {pizzaMomentUrl}/>
+        <CardTitlePasserCommande pizzas={pizzasMainPage} openingTime={openingTime} etablissement={etablissement} showOpening={true} imageContact={pizzaMomentUrl} />
       </CardHolder>
-      <div className='title_underline_holder'>
-        <h1 className='color_third'>
-          Produits du terroir
-        </h1>
-      </div>
-      <CardHolder>
-        {
-          fournisseurs.map((value) => {
-            return ((value.attributes !== undefined) ? (
-              <CardUnderline key={value.id} title={value.attributes.Nom}>
-                <div className="description_holder">
-                  <div className='description'>{value.attributes.Description_Courte}</div>
-                  <ImageHolderSquare src={baseURL + value.attributes.Photo.data.attributes.url} />
-                </div>
-              </CardUnderline>) : undefined);
-          })
-        }
-      </CardHolder>
+      {
+        fournisseurs.length !== 0 &&
+        <>
+            <div className='title_underline_holder'>
+            <h1 className='color_third'>
+              Produits du terroir
+            </h1>
+            </div>
+            <CardHolder>
+              {
+                fournisseurs.map((value) => {
+                  return ((value.attributes !== undefined) ? (
+                    <CardUnderline key={value.id} title={value.attributes.Nom}>
+                      <div className="description_holder">
+                        <div className='description'>{value.attributes.Description_Courte}</div>
+                        <ImageHolderSquare src={baseURL + value.attributes.Photo.data.attributes.url} />
+                      </div>
+                    </CardUnderline>) : undefined);
+                })
+              }
+            </CardHolder>
+        </>
+      }
       <Footer adress={adress} contact={phone} />
     </Transitions>
   </>

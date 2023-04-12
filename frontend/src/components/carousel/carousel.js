@@ -7,7 +7,7 @@ import "./slide_animation.css";
 export function Carousel(props) {
 
     let transitionTimeMs = props.transitionTimeMs;
-    let timeToChangeMs = props.timeToChangeMs;
+    let timeToChangeMs = props.timeToChangeMs + transitionTimeMs;
 
     const [currentImage, setCurrent] = useState(0);
 

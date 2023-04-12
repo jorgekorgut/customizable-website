@@ -33,6 +33,7 @@ export function Emporter(props) {
 
     let phone = etablissement.attributes.Telephone;
     let adress = etablissement.attributes.Adresse;
+    let titre = emporter.attributes.Titre;
 
     let disponibiliteList = emporter.attributes.Disponibilite.split('\n');
 
@@ -42,7 +43,7 @@ export function Emporter(props) {
             {
                 emporter.attributes !== undefined &&
                 <CardHolder>
-                    <CardWideImageTilteText title="Plats à emporter" description={emporter.attributes.Description_Grande} footer={emporter.attributes.Description_Petite} src={baseURL + emporter.attributes.Photo.data.attributes.url}></CardWideImageTilteText>
+                    <CardWideImageTilteText title={titre} description={emporter.attributes.Description_Grande} footer={emporter.attributes.Description_Petite} src={baseURL + emporter.attributes.Photo.data.attributes.url}></CardWideImageTilteText>
                 </CardHolder>
             }
             <div className="card_holder">

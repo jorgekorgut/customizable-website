@@ -3,6 +3,11 @@
   --box-shadow: 1px 1px 10px var(--color_forth);
 }
 
+#root .transition{
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   margin: 0;
 
@@ -11,6 +16,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  padding-right: 5px;
 }
 
 .title_underline_holder h1{
