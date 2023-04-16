@@ -11,17 +11,17 @@ import { Loading } from "pages/loading/loading.js";
 import { baseURL, useFetch } from "utils/communication.js";
 
 export function Cocktails() {
-    [window.loadingOuverture, window.errorOuverture, window.dataOuverture] = useFetch("api/ouvertures",window.dataOuverture);
-    [window.loadingPizza, window.errorPizza, window.dataPizza] = useFetch("api/pizzas?populate=*",window.dataPizza);
-    [window.loadingCocktails, window.errorCocktails, window.dataCocktails] = useFetch("api/cocktails-dinatoire?populate=*",window.dataCocktails);
+    [window.loadingOuverture, window.errorOuverture, window.dataOuverture] = useFetch("api/ouvertures", window.dataOuverture);
+    [window.loadingPizza, window.errorPizza, window.dataPizza] = useFetch("api/pizzas?populate=*", window.dataPizza);
+    [window.loadingCocktails, window.errorCocktails, window.dataCocktails] = useFetch("api/cocktails-dinatoire?populate=*", window.dataCocktails);
     [window.loadingEtablissement, window.errorEtablissement, window.dataEtablissement] = useFetch("api/etablissement", window.dataEtablissement);
 
     if (window.errorCocktails || window.errorEtablissement || window.errorOuverture || window.errorPizza) {
         return <p>Error.</p>;
     }
-    
+
     if (window.loadingCocktails || window.loadingEtablissement || window.loadingOuverture || window.loadingPizza) {
-        return <Loading/>;
+        return <Loading />;
     }
 
     let cocktail = window.dataCocktails.data;
@@ -32,7 +32,12 @@ export function Cocktails() {
     let phone = etablissement.attributes.Telephone;
     let adress = etablissement.attributes.Adresse;
 
-    let disponibiliteList = cocktail.attributes.Disponibilite.split('\n');
+    let disponibiliteList = cocktail.attributes.Balise_Gauche_Contenue;
+    if(disponibiliteList !== null && disponibiliteList !== undefined)
+    {
+        disponibiliteList = disponibiliteList.split('\n');
+    }
+    let titreBaliseGauche = cocktail.attributes.Titre_Balise_Gauche;
 
     let photoContactData = cocktail.attributes.Photo_Contact.data;
 
@@ -46,23 +51,27 @@ export function Cocktails() {
                 </CardHolder>
             }
             <div className="card_holder">
-                <CardTitleText title="Disponibilités">
-                    {
-                        disponibiliteList !== undefined &&
-                        disponibiliteList.map((value, index) => {
-                            return (
-                                value !== "" &&
-                                <div key={index} className="text_holder">
-                                    <div className="start"></div>
-                                    <p >
-                                        {value}
-                                    </p>
-                                </div>
-                            );
-                        })
-                    }
-                </CardTitleText>
-                <CardTitlePasserCommande pizzas={pizzas} openingTime={openingTime} etablissement={etablissement} showOpening={false} imageContact = {photoContactData?.attributes.url}/>
+                {
+                    titreBaliseGauche !== null &&
+                    <CardTitleText title={titreBaliseGauche}>
+                        {
+                            disponibiliteList !== undefined &&
+                            disponibiliteList !== null &&
+                            disponibiliteList.map((value, index) => {
+                                return (
+                                    value !== "" &&
+                                    <div key={index} className="text_holder">
+                                        <div className="start"></div>
+                                        <p >
+                                            {value}
+                                        </p>
+                                    </div>
+                                );
+                            })
+                        }
+                    </CardTitleText>
+                }
+                <CardTitlePasserCommande pizzas={pizzas} openingTime={openingTime} etablissement={etablissement} showOpening={false} imageContact={photoContactData?.attributes.url} />
             </div>
             <Footer adress={adress} contact={phone} />
         </Transitions>
