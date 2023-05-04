@@ -17,7 +17,7 @@ export function NavigationBarHeader(props) {
     }
 
     let emporter = window.dataEmporter.data;
-    let titre = emporter.attributes.Titre;
+    let titre = emporter.attributes.Titre_Page;
 
     return (<header>
         <Link to="/"><Logo/></Link>

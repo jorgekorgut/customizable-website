@@ -11,10 +11,11 @@ import { useNavigate } from 'react-router-dom';
 import { baseURL, useFetch } from "utils/communication.js";
 import { filterPizzasCreme } from "utils/filters/filterPizzasCreme";
 import { filterPizzasEnfant } from "utils/filters/filterPizzasEnfant";
+import { filterNotPizzasEnfant } from "utils/filters/filterNotPizzasEnfant";
 import { filterPizzasMoment } from "utils/filters/filterPizzasMoment";
 import { filterPizzasTomate } from "utils/filters/filterPizzasTomate";
 import "./pizzas.css";
-                                                                                                       
+
 var navigate;
 export function OnClickCommande() {
     navigate("/sur_commande");
@@ -90,23 +91,24 @@ export function Pizzas() {
     }
     if (isMomentActive) {
         let pizzaMomentList = filterPizzasMoment(pizzasDefault);
-        if(pizzaMomentList.length !== 0){
+        if (pizzaMomentList.length !== 0) {
             hasMomentResults = true;
             pizzasMenu = pizzasMenu.concat(pizzaMomentList).unique();
         }
     }
 
     let pizzas = [];
-    if (pizzasBase.length !== 0 ){
+    if (pizzasBase.length !== 0) {
         pizzas = pizzasBase;
     }
-
-    if (pizzasMenu.length !== 0){
+ 
+    if (pizzasMenu.length !== 0) {
         pizzas = pizzasMenu;
     }
 
+    // We didnt find any pizza maching the filters buttons.
     if (pizzas.length === 0 && !isMomentActive) {
-        pizzas = pizzasDefault;
+        pizzas = filterNotPizzasEnfant(pizzasDefault);
     }
 
     return (
@@ -117,15 +119,15 @@ export function Pizzas() {
                     <div className="filter">
                         <p>Selectionnez la base de la pizza </p>
                         <div className="filter_buttons">
-                            <button id="creme_button" onClick={() =>{ onCremeUpdate(!isCremeActive); if(isMomentActive)onMomentUpdate(!isMomentActive); if(isTomateActive) onTomateUpdate(!isTomateActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive);}} className={(isCremeActive) ? "active" : "inactive"}>Crème</button>
-                            <button id="tomate_button" onClick={() =>{ onTomateUpdate(!isTomateActive); if(isMomentActive)onMomentUpdate(!isMomentActive); if(isCremeActive) onCremeUpdate(!isCremeActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive);}}className={(isTomateActive) ? "active" : "inactive"}>Tomate</button>
+                            <button id="creme_button" onClick={() => { onCremeUpdate(!isCremeActive); if (isMomentActive) onMomentUpdate(!isMomentActive); if (isTomateActive) onTomateUpdate(!isTomateActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive); }} className={(isCremeActive) ? "active" : "inactive"}>Crème</button>
+                            <button id="tomate_button" onClick={() => { onTomateUpdate(!isTomateActive); if (isMomentActive) onMomentUpdate(!isMomentActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive); }} className={(isTomateActive) ? "active" : "inactive"}>Tomate</button>
                         </div>
                     </div>
                     <div className="filter">
                         <p>Selectionnez le menu </p>
                         <div className="filter_buttons">
-                            <button id="enfant_button" onClick={() => { onEnfantUpdate(!isEnfantActive); if (isMomentActive) onMomentUpdate(!isMomentActive); if(isCremeActive) onCremeUpdate(!isCremeActive); if(isTomateActive) onTomateUpdate(!isTomateActive);}} className={(isEnfantActive) ? "active" : "inactive"}>Pizza enfant</button>
-                            <button id="moment_button" onClick={() => { onMomentUpdate(!isMomentActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive); if(isCremeActive) onCremeUpdate(!isCremeActive); if(isTomateActive) onTomateUpdate(!isTomateActive);}} className={(isMomentActive) ? "active" : "inactive"}>Pizza du moment</button>
+                            <button id="enfant_button" onClick={() => { onEnfantUpdate(!isEnfantActive); if (isMomentActive) onMomentUpdate(!isMomentActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isTomateActive) onTomateUpdate(!isTomateActive); }} className={(isEnfantActive) ? "active" : "inactive"}>Pizza enfant</button>
+                            <button id="moment_button" onClick={() => { onMomentUpdate(!isMomentActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isTomateActive) onTomateUpdate(!isTomateActive); }} className={(isMomentActive) ? "active" : "inactive"}>Pizza du moment</button>
                             <button onClick={OnClickCommande} className="commande">Sur commande</button>
                         </div>
                     </div>
@@ -133,7 +135,7 @@ export function Pizzas() {
                 {
                     !hasMomentResults && isMomentActive &&
                     <div className="filter_response_holder">
-                        <p><strong>Pizza du moment n'est pas disponible actuellement...</strong></p>
+                        <p><strong>Les pizzas du moment ne sont pas disponible actuellement...</strong></p>
                     </div>
                 }
                 <CardHolder>

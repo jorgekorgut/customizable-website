@@ -13,17 +13,17 @@ import "./emporter.css";
 
 export function Emporter(props) {
 
-    [window.loadingOuverture, window.errorOuverture, window.dataOuverture] = useFetch("api/ouvertures",window.dataOuverture);
-    [window.loadingPizza, window.errorPizza, window.dataPizza] = useFetch("api/pizzas?populate=*",window.dataPizza);
+    [window.loadingOuverture, window.errorOuverture, window.dataOuverture] = useFetch("api/ouvertures", window.dataOuverture);
+    [window.loadingPizza, window.errorPizza, window.dataPizza] = useFetch("api/pizzas?populate=*", window.dataPizza);
     [window.loadingEtablissement, window.errorEtablissement, window.dataEtablissement] = useFetch("api/etablissement", window.dataEtablissement);
-    [window.loadingEmporter, window.errorEmporter, window.dataEmporter] = useFetch("api/plats-a-emporter?populate=*",window.dataEmporter);
+    [window.loadingEmporter, window.errorEmporter, window.dataEmporter] = useFetch("api/plats-a-emporter?populate=*", window.dataEmporter);
 
     if (window.errorEmporter || window.errorEtablissement || window.errorPizza || window.errorOuverture) {
         return <p>Error.</p>;
     }
-    
+
     if (window.loadingEmporter || window.loadingEtablissement || window.loadingPizza || window.loadingOuverture) {
-        return <Loading/>;
+        return <Loading />;
     }
 
     let emporter = window.dataEmporter.data;
@@ -33,9 +33,13 @@ export function Emporter(props) {
 
     let phone = etablissement.attributes.Telephone;
     let adress = etablissement.attributes.Adresse;
-    let titre = emporter.attributes.Titre;
+    let titre = emporter.attributes.Titre_Page;
 
-    let disponibiliteList = emporter.attributes.Disponibilite.split('\n');
+    let disponibiliteList = emporter.attributes.Balise_Gauche_Contenue;
+    if (disponibiliteList !== null && disponibiliteList !== undefined) {
+        disponibiliteList = disponibiliteList.split('\n');
+    }
+    let titreBaliseGauche = emporter.attributes.Titre_Balise_Gauche;
 
     return <>
         <Transitions>
@@ -47,23 +51,28 @@ export function Emporter(props) {
                 </CardHolder>
             }
             <div className="card_holder">
-                <CardTitleText title="Disponibilités">
-                    {
-                        disponibiliteList !== undefined &&
-                        disponibiliteList.map((value, index) => {
-                            return (
-                                value !== "" &&
-                                <div key={index} className="text_holder">
-                                    <div className="start"></div>
-                                    <p >
-                                        {value}
-                                    </p>
-                                </div>
-                            );
-                        })
-                    }
-                </CardTitleText>
-                <CardTitlePasserCommande pizzas={pizzas} openingTime={openingTime} etablissement={etablissement} showOpening={false} imageContact={emporter.attributes.Photo_Contact.data?.attributes.url}/>
+                {
+                    titreBaliseGauche !== null &&
+                    titreBaliseGauche !== undefined &&
+                    <CardTitleText title={titreBaliseGauche}>
+                        {
+                            disponibiliteList !== undefined &&
+                            disponibiliteList !== null &&
+                            disponibiliteList.map((value, index) => {
+                                return (
+                                    value !== "" &&
+                                    <div key={index} className="text_holder">
+                                        <div className="start"></div>
+                                        <p >
+                                            {value}
+                                        </p>
+                                    </div>
+                                );
+                            })
+                        }
+                    </CardTitleText>
+                }
+                <CardTitlePasserCommande pizzas={pizzas} openingTime={openingTime} etablissement={etablissement} showOpening={false} imageContact={emporter.attributes.Photo_Contact.data?.attributes.url} />
             </div>
             <Footer adress={adress} contact={phone} />
         </Transitions>

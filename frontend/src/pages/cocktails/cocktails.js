@@ -53,6 +53,7 @@ export function Cocktails() {
             <div className="card_holder">
                 {
                     titreBaliseGauche !== null &&
+                    titreBaliseGauche !== undefined &&
                     <CardTitleText title={titreBaliseGauche}>
                         {
                             disponibiliteList !== undefined &&
