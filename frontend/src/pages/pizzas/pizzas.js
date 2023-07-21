@@ -127,7 +127,7 @@ export function Pizzas() {
                         <p>Selectionnez le menu </p>
                         <div className="filter_buttons">
                             <button id="enfant_button" onClick={() => { onEnfantUpdate(!isEnfantActive); if (isMomentActive) onMomentUpdate(!isMomentActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isTomateActive) onTomateUpdate(!isTomateActive); }} className={(isEnfantActive) ? "active" : "inactive"}>Pizza enfant</button>
-                            <button id="moment_button" onClick={() => { onMomentUpdate(!isMomentActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isTomateActive) onTomateUpdate(!isTomateActive); }} className={(isMomentActive) ? "active" : "inactive"}>Pizza du moment</button>
+                            <button id="moment_button" onClick={() => { onMomentUpdate(!isMomentActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isTomateActive) onTomateUpdate(!isTomateActive); }} className={(isMomentActive) ? "active" : "inactive"}>Pizza dessert</button>
                             <button onClick={OnClickCommande} className="commande">Sur commande</button>
                         </div>
                     </div>
