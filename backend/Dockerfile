@@ -3,13 +3,13 @@ FROM node:16
 RUN apt-get update && apt-get install libvips-dev -y
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
-WORKDIR /opt/
-COPY ./package.json ./
-ENV PATH /opt/node_modules/.bin:$PATH
-RUN npm install
+#WORKDIR /opt/
+#COPY ./package.json ./
+#ENV PATH /opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY ./ .
 COPY ./database/data.db ./database/data.db
-RUN npm run build
+RUN npm install
+#RUN npm run build
 EXPOSE 1337
-CMD ["npm", "run", "develop"]
+CMD ["npm", "run", "start"]
