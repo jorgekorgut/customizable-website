@@ -10,6 +10,6 @@ WORKDIR /opt/app
 COPY ./ .
 COPY ./database/data.db ./database/data.db
 RUN npm install
-#RUN npm run build
+RUN npm run build
 EXPOSE 1337
 CMD ["npm", "run", "start"]
