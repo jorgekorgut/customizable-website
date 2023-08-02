@@ -39,7 +39,7 @@ export function Cocktails() {
     }
     let titreBaliseGauche = cocktail.attributes.Titre_Balise_Gauche;
 
-    let photoContactData = cocktail.attributes.Photo_Contact.data;
+    let photoContactData = cocktail.attributes.Photo.data;
 
     return <>
         <Transitions>
