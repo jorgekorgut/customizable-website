@@ -1,7 +1,7 @@
 version: "3"
 services:
-  strapi:
-    container_name: backend
+  strapi_kiosque:
+    container_name: backend_kiosque
     build: .
     image: mystrapi:latest
     restart: unless-stopped

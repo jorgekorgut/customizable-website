@@ -4,7 +4,7 @@
   "info": {
     "singularName": "pizza-sur-commande",
     "pluralName": "pizza-sur-commandes",
-    "displayName": "Pizza_Sur_Commande",
+    "displayName": "Pizza du moment",
     "description": ""
   },
   "options": {
