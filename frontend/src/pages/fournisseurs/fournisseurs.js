@@ -15,7 +15,7 @@ export function Fournisseurs() {
     [window.loadingSuppliers, window.errorSuppliers, window.dataSuppliers] = useFetch("api/fournisseurs?populate=*", window.dataSuppliers);
 
     if (window.errorEtablissement || window.errorSuppliers) {
-        return <p>Error.</p>;
+        return <p>Fournisseurs Oloron</p>;
     }
 
     if (window.loadingEtablissement || window.loadingSuppliers) {
