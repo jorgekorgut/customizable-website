@@ -19,7 +19,7 @@ export function SurCommande() {
     [window.loadingCommande, window.errorCommande, window.dataCommande] = useFetch("api/pizza-sur-commande?populate=*",window.dataCommande);
 
     if (window.errorCommande || window.errorEtablissement || window.errorOuverture || window.errorPizza) {
-        return <p>Error.</p>;
+        return <p>Commandes</p>;
     }
     
     if (window.loadingCommande || window.loadingEtablissement || window.loadingOuverture || window.loadingPizza) {
