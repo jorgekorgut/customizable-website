@@ -19,7 +19,7 @@ export function Emporter(props) {
     [window.loadingEmporter, window.errorEmporter, window.dataEmporter] = useFetch("api/plats-a-emporter?populate=*", window.dataEmporter);
 
     if (window.errorEmporter || window.errorEtablissement || window.errorPizza || window.errorOuverture) {
-        return <p>Error.</p>;
+        return <p>Service traiteur Oloron</p>;
     }
 
     if (window.loadingEmporter || window.loadingEtablissement || window.loadingPizza || window.loadingOuverture) {
