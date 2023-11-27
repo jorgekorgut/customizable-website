@@ -17,7 +17,7 @@ export function Cocktails() {
     [window.loadingEtablissement, window.errorEtablissement, window.dataEtablissement] = useFetch("api/etablissement", window.dataEtablissement);
 
     if (window.errorCocktails || window.errorEtablissement || window.errorOuverture || window.errorPizza) {
-        return <p>Error.</p>;
+        return <p>Cocktails Dinatoires Oloron</p>;
     }
 
     if (window.loadingCocktails || window.loadingEtablissement || window.loadingOuverture || window.loadingPizza) {
