@@ -25,7 +25,7 @@ export function CardTitlePasserCommande(props) {
             </div>
             <div className='descritpion_holder'>
                 {
-                    imageContact !== undefined &&
+                    imageContact != undefined &&
                     <div className={props.showOpening ? 'image_holder_square' : 'image_holder_wide'}>
                         <img src={baseURL + imageContact} alt={props.alt}></img>
                     </div>

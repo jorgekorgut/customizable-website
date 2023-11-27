@@ -3,7 +3,10 @@ export function CardImage(props) {
     return (
         <div className="card_image">
             <div className="image_holder_square">
-                <img src={props.src} alt={props.alt}/>
+                {
+                    props.src &&
+                    <img src={props.src} alt={props.alt}/>
+                }
             </div>
             <div className="content_holder">
                 <div className="title">

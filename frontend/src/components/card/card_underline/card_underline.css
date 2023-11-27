@@ -4,11 +4,13 @@
     width: 35vw;
     min-width: 290px;
     max-width: 400px;
+    height: fit-content;
     margin: var(--margin);
     margin-top: calc(2*var(--margin));
     border-radius: 15px;
     box-shadow: var(--box-shadow);
     background-color: var(--color_background);
+    
 }
 
 .card_underline .underline_title {
@@ -27,7 +29,7 @@
     content: "";
     position: absolute;
     height: 10px;
-    width: calc(100% + 20px);
+    width: calc(100%);
     left: -10px;
     bottom: -10px;
     background-color: var(--color_forth);

@@ -37,7 +37,7 @@ export function Fournisseurs() {
             <CardHolder>
                 {
                     fournisseurs.map((value) => {
-                        return <CardWideImageTilteText key={value.id} title={value.attributes.Nom} description={value.attributes.Description_Longue} footer={value.attributes.Produit} src={baseURL + value.attributes.Photo.data.attributes.url}></CardWideImageTilteText>
+                        return <CardWideImageTilteText key={value.id} title={value.attributes.Nom} description={value.attributes.Description_Longue} footer={value.attributes.Produit} src={(value.attributes.Photo.data != null) ? (baseURL + value.attributes.Photo.data.attributes.url) : null}></CardWideImageTilteText>
                     })
                 }
             </CardHolder>

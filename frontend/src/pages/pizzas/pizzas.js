@@ -18,7 +18,7 @@ import "./pizzas.css";
 
 var navigate;
 export function OnClickCommande() {
-    navigate("/sur_commande");
+    navigate("/pizza_du_moment");
 }
 
 Array.prototype.unique = function () {
@@ -128,7 +128,7 @@ export function Pizzas() {
                         <div className="filter_buttons">
                             <button id="enfant_button" onClick={() => { onEnfantUpdate(!isEnfantActive); if (isMomentActive) onMomentUpdate(!isMomentActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isTomateActive) onTomateUpdate(!isTomateActive); }} className={(isEnfantActive) ? "active" : "inactive"}>Pizza enfant</button>
                             <button id="moment_button" onClick={() => { onMomentUpdate(!isMomentActive); if (isEnfantActive) onEnfantUpdate(!isEnfantActive); if (isCremeActive) onCremeUpdate(!isCremeActive); if (isTomateActive) onTomateUpdate(!isTomateActive); }} className={(isMomentActive) ? "active" : "inactive"}>Pizza dessert</button>
-                            <button onClick={OnClickCommande} className="commande">Sur commande</button>
+                            <button onClick={OnClickCommande} className="commande">Pizza du moment</button>
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@ export function Pizzas() {
                     {
                         pizzas.map((value) => {
                             return (
-                                <CardImage key={value.id} title={value.attributes.Nom} src={baseURL + value.attributes.image.data.attributes.url}>
+                                <CardImage key={value.id} title={value.attributes.Nom} src={(value.attributes.image.data != null) ? (baseURL + value.attributes.image.data.attributes.url) : null}>
                                     <p>{value.attributes.Ingredients}</p>
                                     <div className="content_footer">{"Prix : " + value.attributes.Prix + " Euros"}</div>
                                 </CardImage>

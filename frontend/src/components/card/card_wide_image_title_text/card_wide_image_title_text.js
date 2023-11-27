@@ -2,7 +2,10 @@ import "./card_wide_image_title_text.css";
 export function CardWideImageTilteText(props) {
     return (<div className="card_wide">
         <div className="image_holder_wide">
-            <img src={props.src} alt={props.alt} />
+            {
+                props.src &&
+                <img src={props.src} alt={props.alt} />
+            }
         </div>
         <div className="content_holder">
             <h1>{props.title}</h1>

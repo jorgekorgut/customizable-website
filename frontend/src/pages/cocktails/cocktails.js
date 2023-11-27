@@ -47,7 +47,7 @@ export function Cocktails() {
             {
                 cocktail.attributes !== undefined &&
                 <CardHolder>
-                    <CardWideImageTilteText title="Cocktails Dinatoires" description={cocktail.attributes.Description_Grande} footer={cocktail.attributes.Description_Petite} src={baseURL + cocktail.attributes.Photo.data.attributes.url}></CardWideImageTilteText>
+                    <CardWideImageTilteText title="Cocktails Dinatoires" description={cocktail.attributes.Description_Grande} footer={cocktail.attributes.Description_Petite} src={(cocktail.attributes.Photo.data != undefined) ? (baseURL + cocktail.attributes.Photo.data.attributes.url) : null}></CardWideImageTilteText>
                 </CardHolder>
             }
             <div className="card_holder">

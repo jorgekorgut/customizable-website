@@ -39,7 +39,7 @@ export function SurCommande() {
             <NavigationBarHeader />
             <CardHolder>
             {
-                <CardWideImageTilteText title={surCommande.attributes.Titre} description={surCommande.attributes.Description_Longue} footer={surCommande.attributes.Produit} src={baseURL + surCommande.attributes.Photo.data.attributes.url}></CardWideImageTilteText>
+                <CardWideImageTilteText title={surCommande.attributes.Titre} description={surCommande.attributes.Description_Longue} footer={surCommande.attributes.Produit} src={(surCommande.attributes.Photo.data !=null ) ? (baseURL + surCommande.attributes.Photo.data?.attributes.url) : null}></CardWideImageTilteText>
             }
             </CardHolder>
             <CardHolder>

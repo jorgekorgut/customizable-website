@@ -47,7 +47,7 @@ root.render(
         <Route key="2" path="pizzas" element={<Pizzas />} />
         <Route key="3" path="plats_a_emporter" element={<Emporter />} />
         <Route key="4" path="cocktail_dinatoires" element={<Cocktails />} />
-        <Route key="5" path="sur_commande" element={<SurCommande />} />
+        <Route key="5" path="pizza_du_moment" element={<SurCommande />} />
         <Route key="6" path="fournisseurs" element={<Fournisseurs />} />
       </Routes>
     </BrowserRouter>

@@ -33,7 +33,8 @@ export function Emporter(props) {
 
     let phone = etablissement.attributes.Telephone;
     let adress = etablissement.attributes.Adresse;
-    let titre = emporter.attributes.Titre_Page;
+    //let titre = emporter.attributes.Titre_Page;
+    let titre = "Traiteur";
 
     let disponibiliteList = emporter.attributes.Balise_Gauche_Contenue;
     if (disponibiliteList !== null && disponibiliteList !== undefined) {
@@ -47,7 +48,7 @@ export function Emporter(props) {
             {
                 emporter.attributes !== undefined &&
                 <CardHolder>
-                    <CardWideImageTilteText title={titre} description={emporter.attributes.Description_Grande} footer={emporter.attributes.Description_Petite} src={baseURL + emporter.attributes.Photo.data.attributes.url}></CardWideImageTilteText>
+                    <CardWideImageTilteText title={titre} description={emporter.attributes.Description_Grande} footer={emporter.attributes.Description_Petite} src={(emporter.attributes.Photo.data != null) ? baseURL + emporter.attributes.Photo.data.attributes.url : null}></CardWideImageTilteText>
                 </CardHolder>
             }
             <div className="card_holder">
@@ -72,7 +73,7 @@ export function Emporter(props) {
                         }
                     </CardTitleText>
                 }
-                <CardTitlePasserCommande pizzas={pizzas} openingTime={openingTime} etablissement={etablissement} showOpening={false} imageContact={emporter.attributes.Photo_Contact.data?.attributes.url} />
+                <CardTitlePasserCommande pizzas={pizzas} openingTime={openingTime} etablissement={etablissement} showOpening={false} imageContact={emporter.attributes.Photo.data?.attributes.url} />
             </div>
             <Footer adress={adress} contact={phone} />
         </Transitions>
