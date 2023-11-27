@@ -61,7 +61,7 @@ export function Pizzas() {
     [window.loadingEtablissement, window.errorEtablissement, window.dataEtablissement] = useFetch("api/etablissement", window.dataEtablissement);
 
     if (window.errorEtablissement || window.errorPizza) {
-        return <p>Error.</p>;
+        return <p>Pizzeria Oloron</p>;
     }
 
     if (window.loadingEtablissement || window.loadingPizza) {
