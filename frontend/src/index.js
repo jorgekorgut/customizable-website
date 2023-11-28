@@ -141,7 +141,7 @@ function Index() {
                     <CardUnderline key={value.id} title={value.attributes.Nom}>
                       <div className="description_holder">
                         <div className='description'>{value.attributes.Description_Courte}</div>
-                        <ImageHolderSquare src={baseURL + value.attributes.Photo.data.attributes.url} />
+                        <ImageHolderSquare src={baseURL + value.attributes.Photo.data?.attributes.url} />
                       </div>
                     </CardUnderline>) : undefined);
                 })
