@@ -23,6 +23,7 @@ services:
       - ./yarn.lock:/opt/package-lock.json # Replace with package-lock.json if using npm
       - ./.env:/opt/app/.env
       - ./database/data.db:/opt/app/database/data.db
+      - ./public/uploads:/opt/app/public/uploads
     ports:
       - "1337:1337"
     networks:
