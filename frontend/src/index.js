@@ -37,10 +37,11 @@ import { filterFournisseursMainPage } from "utils/filters/filterFournisseursMain
 import { filterMainPagePizzas } from "utils/filters/filterMainPagePizzas";
 import { filterPizzaDuMoment } from "utils/filters/filterPizzaDuMoment";
 import './index.css';
+import { Informations } from "pages/information/information";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <AnimatePresence exitBeforeEnter>
+  <AnimatePresence mode="wait">
     <BrowserRouter>
       <Routes>
         <Route key="1" path="/" element={<Index />} />
@@ -49,6 +50,7 @@ root.render(
         <Route key="4" path="cocktail_dinatoires" element={<Cocktails />} />
         <Route key="5" path="pizza_du_moment" element={<SurCommande />} />
         <Route key="6" path="fournisseurs" element={<Fournisseurs />} />
+        <Route key="7" path="informations" element={<Informations />} />
       </Routes>
     </BrowserRouter>
   </AnimatePresence>

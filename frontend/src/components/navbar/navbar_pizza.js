@@ -9,7 +9,7 @@ export function NavigationBarHeader(props) {
     [window.loadingEmporter, window.errorEmporter, window.dataEmporter] = useFetch("api/plats-a-emporter?populate=*",window.dataEmporter);
 
     if (window.errorEmporter) {
-        return <p>Error.</p>;
+        return <p>Navigation</p>;
     }
     
     if (window.loadingEmporter) {
@@ -26,6 +26,7 @@ export function NavigationBarHeader(props) {
             <Link to="/plats_a_emporter" className="emporter nav_element">Traiteur</Link>
             <Link to="/cocktail_dinatoires" className="cocktails nav_element">Cocktails Dinatoires</Link>
             <Link to="/fournisseurs" className="fournisseurs nav_element">Fournisseurs</Link>
+            <Link to="/informations" className="informations nav_element">Informations</Link>
         </nav>
     </header>);
 }
