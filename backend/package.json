@@ -16,8 +16,7 @@
     "better-sqlite3": "10.1.0",
     "mysql": "^2.18.1",
     "pg": "^8.7.3",
-    "postgres": "^3.2.4",
-    "strapi": "^3.6.11"
+    "postgres": "^3.2.4"
   },
   "author": {
     "name": "A Strapi developer"
