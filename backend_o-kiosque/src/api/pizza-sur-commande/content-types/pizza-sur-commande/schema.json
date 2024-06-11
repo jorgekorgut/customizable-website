@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "pizza_sur_commandes",
+  "info": {
+    "singularName": "pizza-sur-commande",
+    "pluralName": "pizza-sur-commandes",
+    "displayName": "Pizza du moment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Description_Longue": {
+      "type": "richtext"
+    },
+    "Description_Courte": {
+      "type": "string"
+    }
+  }
+}

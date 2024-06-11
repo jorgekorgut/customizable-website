@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "informations",
+  "info": {
+    "singularName": "information",
+    "pluralName": "informations",
+    "displayName": "Information",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Date": {
+      "type": "datetime",
+      "required": true
+    },
+    "Titre": {
+      "type": "string"
+    },
+    "Detaille": {
+      "type": "richtext"
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

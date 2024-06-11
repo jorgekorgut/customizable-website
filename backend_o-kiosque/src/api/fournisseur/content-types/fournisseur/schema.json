@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fournisseurs",
+  "info": {
+    "singularName": "fournisseur",
+    "pluralName": "fournisseurs",
+    "displayName": "Fournisseur",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "Description_Courte": {
+      "type": "richtext"
+    },
+    "Description_Longue": {
+      "type": "richtext"
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Produit": {
+      "type": "string"
+    },
+    "Exposer_En_Page_Principal": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pizzas",
+  "info": {
+    "singularName": "pizza",
+    "pluralName": "pizzas",
+    "displayName": "Pizza",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nom": {
+      "type": "string",
+      "required": true
+    },
+    "Ingredients": {
+      "type": "richtext",
+      "required": true
+    },
+    "Prix": {
+      "type": "decimal",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Exposer_En_Page_Principal": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Menu_Enfant": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "Base_Tomate": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "Base_Creme": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "Pizza_Du_Moment": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
