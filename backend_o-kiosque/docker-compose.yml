@@ -2,8 +2,10 @@ version: "3"
 services:
   strapi_kiosque:
     container_name: backend_kiosque
-    build: .
-    image: mystrapi:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    #image: mystrapi:latest
     restart: unless-stopped
     env_file: .env
     environment:
