@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "distributeurs",
+  "info": {
+    "singularName": "distributeur",
+    "pluralName": "distributeurs",
+    "displayName": "Distributeur"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Detaille": {
+      "type": "text",
+      "required": true
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Prix": {
+      "type": "string"
+    }
+  }
+}
