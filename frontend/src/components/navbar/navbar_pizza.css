@@ -76,3 +76,7 @@ header a:hover{
 .informations{
     color: var(--color_red);
 }
+
+.distributeur{
+    color: var(--color_green);
+}

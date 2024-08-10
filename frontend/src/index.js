@@ -38,6 +38,7 @@ import { filterMainPagePizzas } from "utils/filters/filterMainPagePizzas";
 import { filterPizzaDuMoment } from "utils/filters/filterPizzaDuMoment";
 import './index.css';
 import { Informations } from "pages/information/information";
+import { Distributeur } from "pages/distributeur/distributeur";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -51,6 +52,7 @@ root.render(
         <Route key="5" path="pizza_du_moment" element={<SurCommande />} />
         <Route key="6" path="fournisseurs" element={<Fournisseurs />} />
         <Route key="7" path="informations" element={<Informations />} />
+        <Route key="8" path="distributeur" element={<Distributeur />} />
       </Routes>
     </BrowserRouter>
   </AnimatePresence>
@@ -65,7 +67,7 @@ function Index() {
   [window.loadingParameters, window.errorParameters, window.dataParameters] = useFetch("api/parametre", window.dataParameters);
 
   if (window.errorEtablissement || window.errorOuverture || window.errorSuppliers || window.errorPizza || window.errorParameters) {
-    return <p>Error.</p>;
+    return <p>Okiosque à pizzas Oloron</p>;
   }
 
   if (window.loadingEtablissement || window.loadingOuverture || window.loadingSuppliers || window.loadingPizza || window.loadingParameters) {

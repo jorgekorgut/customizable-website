@@ -11,7 +11,7 @@ export function CardWideImageTilteTextDate(props) {
             <h1>{props.title}</h1>
             <div className="description">
                 {
-                    props.description !== null &&
+                    props.description != null &&
                     props.description.split('\n').map((value, index) => {
                         return <p key={index}>{value}</p>
                     })

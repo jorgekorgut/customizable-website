@@ -27,6 +27,7 @@ export function NavigationBarHeader(props) {
             <Link to="/cocktail_dinatoires" className="cocktails nav_element">Cocktails Dinatoires</Link>
             <Link to="/fournisseurs" className="fournisseurs nav_element">Fournisseurs</Link>
             <Link to="/informations" className="informations nav_element">Informations</Link>
+            <Link to="/distributeur" className="distributeur nav_element">Distributeur</Link>
         </nav>
     </header>);
 }
