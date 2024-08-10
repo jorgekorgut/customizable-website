@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "distributeur_infos",
+  "info": {
+    "singularName": "distributeur-info",
+    "pluralName": "distributeur-infos",
+    "displayName": "Distributeur_info",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Adresse": {
+      "type": "text"
+    }
+  }
+}
