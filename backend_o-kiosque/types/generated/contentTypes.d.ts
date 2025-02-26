@@ -788,40 +788,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiCocktailsDinatoireCocktailsDinatoire
-  extends Schema.SingleType {
-  collectionName: 'cocktails_dinatoires';
-  info: {
-    singularName: 'cocktails-dinatoire';
-    pluralName: 'cocktails-dinatoires';
-    displayName: 'Cocktails_dinatoire';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    Description_Grande: Attribute.RichText;
-    Description_Petite: Attribute.String;
-    Photo: Attribute.Media;
-    Disponibilite: Attribute.RichText;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::cocktails-dinatoire.cocktails-dinatoire',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::cocktails-dinatoire.cocktails-dinatoire',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiDistributeurDistributeur extends Schema.CollectionType {
   collectionName: 'distributeurs';
   info: {
@@ -902,8 +868,8 @@ export interface ApiEtablissementEtablissement extends Schema.SingleType {
     Telephone: Attribute.String;
     Adresse: Attribute.String;
     Rayon_De_Livraison_En_Km: Attribute.String;
-    Latitude: Attribute.String;
-    Longitude: Attribute.String;
+    Latitude: Attribute.String & Attribute.Required;
+    Longitude: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1023,6 +989,80 @@ export interface ApiOuvertureOuverture extends Schema.CollectionType {
   };
 }
 
+export interface ApiPage1Page1 extends Schema.SingleType {
+  collectionName: 'page_1s';
+  info: {
+    singularName: 'page-1';
+    pluralName: 'page-1s';
+    displayName: 'Page_1';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Visible: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Titre_navigation: Attribute.String;
+    Description_Petite: Attribute.String;
+    Photo: Attribute.Media;
+    Titre: Attribute.String;
+    Description_Grande: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-1.page-1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-1.page-1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPage2Page2 extends Schema.SingleType {
+  collectionName: 'page_2s';
+  info: {
+    singularName: 'page-2';
+    pluralName: 'page-2s';
+    displayName: 'Page_2';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Visible: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Titre_navigation: Attribute.String;
+    Description_Petite: Attribute.String;
+    Photo: Attribute.Media;
+    Titre: Attribute.String;
+    Description_Grande: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-2.page-2',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-2.page-2',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiParametreParametre extends Schema.SingleType {
   collectionName: 'parametres';
   info: {
@@ -1135,39 +1175,6 @@ export interface ApiPizzaSurCommandePizzaSurCommande extends Schema.SingleType {
   };
 }
 
-export interface ApiPlatsAEmporterPlatsAEmporter extends Schema.SingleType {
-  collectionName: 'plats_a_emporters';
-  info: {
-    singularName: 'plats-a-emporter';
-    pluralName: 'plats-a-emporters';
-    displayName: 'Plats_A_Emporter';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    Description_Grande: Attribute.RichText;
-    Description_Petite: Attribute.String;
-    Photo: Attribute.Media;
-    Disponibilite: Attribute.RichText;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::plats-a-emporter.plats-a-emporter',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::plats-a-emporter.plats-a-emporter',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1186,17 +1193,17 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::cocktails-dinatoire.cocktails-dinatoire': ApiCocktailsDinatoireCocktailsDinatoire;
       'api::distributeur.distributeur': ApiDistributeurDistributeur;
       'api::distributeur-info.distributeur-info': ApiDistributeurInfoDistributeurInfo;
       'api::etablissement.etablissement': ApiEtablissementEtablissement;
       'api::fournisseur.fournisseur': ApiFournisseurFournisseur;
       'api::information.information': ApiInformationInformation;
       'api::ouverture.ouverture': ApiOuvertureOuverture;
+      'api::page-1.page-1': ApiPage1Page1;
+      'api::page-2.page-2': ApiPage2Page2;
       'api::parametre.parametre': ApiParametreParametre;
       'api::pizza.pizza': ApiPizzaPizza;
       'api::pizza-sur-commande.pizza-sur-commande': ApiPizzaSurCommandePizzaSurCommande;
-      'api::plats-a-emporter.plats-a-emporter': ApiPlatsAEmporterPlatsAEmporter;
     }
   }
 }

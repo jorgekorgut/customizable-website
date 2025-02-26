@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "plats_a_emporters",
+  "collectionName": "page_1s",
   "info": {
-    "singularName": "plats-a-emporter",
-    "pluralName": "plats-a-emporters",
-    "displayName": "Plats_A_Emporter",
+    "singularName": "page-1",
+    "pluralName": "page-1s",
+    "displayName": "Page_1",
     "description": ""
   },
   "options": {
@@ -12,8 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Description_Grande": {
-      "type": "richtext"
+    "Visible": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Titre_navigation": {
+      "type": "string"
     },
     "Description_Petite": {
       "type": "string"
@@ -29,7 +34,10 @@
         "audios"
       ]
     },
-    "Disponibilite": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description_Grande": {
       "type": "richtext"
     }
   }

@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "cocktails_dinatoires",
+  "collectionName": "page_2s",
   "info": {
-    "singularName": "cocktails-dinatoire",
-    "pluralName": "cocktails-dinatoires",
-    "displayName": "Cocktails_dinatoire",
+    "singularName": "page-2",
+    "pluralName": "page-2s",
+    "displayName": "Page_2",
     "description": ""
   },
   "options": {
@@ -12,8 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Description_Grande": {
-      "type": "richtext"
+    "Visible": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Titre_navigation": {
+      "type": "string"
     },
     "Description_Petite": {
       "type": "string"
@@ -23,13 +28,13 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
-    "Disponibilite": {
+    "Titre": {
+      "type": "string"
+    },
+    "Description_Grande": {
       "type": "richtext"
     }
   }
