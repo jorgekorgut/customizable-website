@@ -16,17 +16,17 @@ export function CustomPage(props) {
     [window.loadingOuverture, window.errorOuverture, window.dataOuverture] = useFetch("api/ouvertures", window.dataOuverture);
     [window.loadingPizza, window.errorPizza, window.dataPizza] = useFetch("api/pizzas?populate=*", window.dataPizza);
     [window.loadingEtablissement, window.errorEtablissement, window.dataEtablissement] = useFetch("api/etablissement", window.dataEtablissement);
-    [window.loadingPageCustom, window.errorPageCustom, window.dataPageCustom] = useFetch(`api/${props.name}?populate=*`, window.dataPageCustom);
+    [window[`loadingPageCustom${props.name}`], window[`errorPageCustom${props.name}`], window[`dataPageCustom${props.name}`]] = useFetch(`api/${props.name}?populate=*`, window[`dataPageCustom${props.name}`]);
 
-    if (window.errorPageCustom || window.errorEtablissement || window.errorPizza || window.errorOuverture) {
+    if (window[`errorPageCustom${props.name}`] || window.errorEtablissement || window.errorPizza || window.errorOuverture) {
         return <p>Okiosque à pizzas Oloron</p>;
     }
 
-    if (window.loadingPageCustom || window.loadingEtablissement || window.loadingPizza || window.loadingOuverture) {
+    if (window[`loadingPageCustom${props.name}`] || window.loadingEtablissement || window.loadingPizza || window.loadingOuverture) {
         return <Loading />;
     }
-
-    let pageCustom = window.dataPageCustom.data;
+    console.log(window[`dataPageCustom${props.name}`])
+    let pageCustom = window[`dataPageCustom${props.name}`].data;
     let etablissement = window.dataEtablissement.data;
     let pizzas = window.dataPizza.data;
     let openingTime = window.dataOuverture.data;
