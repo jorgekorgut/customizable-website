@@ -6,28 +6,50 @@ import "./navbar_pizza.css";
 
 export function NavigationBarHeader(props) {
 
-    [window.loadingEmporter, window.errorEmporter, window.dataEmporter] = useFetch("api/plats-a-emporter?populate=*",window.dataEmporter);
+    [window.loadingPage1, window.errorPage1, window.dataPage1] = useFetch("api/page-1?populate=*",window.dataPage1);
+    [window.loadingPage2, window.errorPage2, window.dataPage2] = useFetch("api/page-2?populate=*",window.dataPage2);
 
-    if (window.errorEmporter) {
+    if (window.errorPage1 || window.errorPage2) {
         return <p>Navigation</p>;
     }
     
-    if (window.loadingEmporter) {
+    if (window.loadingPage1 || window.loadingPage2) {
         return <Loading/>;
     }
 
-    let emporter = window.dataEmporter.data;
-    let titre = emporter.attributes.Titre_Page;
+    let page1 = window.dataPage1.data;
+    let titrePage1 = page1.attributes.Titre_navigation ?? "";
+    let showPage1 = page1.attributes.Visible;
+
+    let page2 = window.dataPage2.data;
+    let titrePage2 = page2.attributes.Titre_navigation ?? "";
+    let showPage2 = page2.attributes.Visible;
+
+    let countPages = 0
+    if(showPage1){
+        countPages++;
+    }
+    if(showPage2){
+        countPages++;
+    }
+
+    const isPairAddPages = countPages % 2 === 0;
 
     return (<header>
         <Link to="/"><Logo/></Link>
         <nav>
-            <Link to="/pizzas" className="pizzas nav_element">Pizzas</Link>
-            <Link to="/plats_a_emporter" className="emporter nav_element">Traiteur</Link>
-            <Link to="/cocktail_dinatoires" className="cocktails nav_element">Cocktails Dinatoires</Link>
-            <Link to="/fournisseurs" className="fournisseurs nav_element">Fournisseurs</Link>
-            <Link to="/informations" className="informations nav_element">Informations</Link>
-            <Link to="/distributeur" className="distributeur nav_element">Distributeur</Link>
+            <Link to="/pizzas" className="pizzas nav_element color-red">Pizzas</Link>
+            {
+                showPage1 &&
+                <Link to="/page-1" className={`page1 nav_element color-green`}>{titrePage1}</Link>
+            }
+            {
+                showPage2 &&
+                <Link to="/page-2" className={`page2 nav_element ${showPage1 ? 'color-red' : 'color-green'}`}>{titrePage2}</Link>
+            }
+            <Link to="/fournisseurs" className={`fournisseurs nav_element ${isPairAddPages ? 'color-green' : 'color-red'}`}>Fournisseurs</Link>
+            <Link to="/informations" className={`informations nav_element ${isPairAddPages ? 'color-red'   : 'color-green'}`}>Informations</Link>
+            <Link to="/distributeur" className={`distributeur nav_element ${isPairAddPages ? 'color-green' : 'color-red'}`}>Distributeur</Link>
         </nav>
     </header>);
 }

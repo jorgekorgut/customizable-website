@@ -25,9 +25,7 @@ import { Map } from "components/map/map";
 import { NavigationBarHeader } from 'components/navbar/navbar_pizza.js';
 import Pin from "images/pin.svg";
 import Leaflet from "leaflet";
-import { Cocktails } from 'pages/cocktails/cocktails.js';
 import { SurCommande } from 'pages/commande/commande.js';
-import { Emporter } from 'pages/emporter/emporter.js';
 import { Fournisseurs } from 'pages/fournisseurs/fournisseurs.js';
 import { Loading } from 'pages/loading/loading.js';
 import { Pizzas } from 'pages/pizzas/pizzas.js';
@@ -39,6 +37,7 @@ import { filterPizzaDuMoment } from "utils/filters/filterPizzaDuMoment";
 import './index.css';
 import { Informations } from "pages/information/information";
 import { Distributeur } from "pages/distributeur/distributeur";
+import { CustomPage } from "pages/custom-page/custom-page";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -47,8 +46,8 @@ root.render(
       <Routes>
         <Route key="1" path="/" element={<Index />} />
         <Route key="2" path="pizzas" element={<Pizzas />} />
-        <Route key="3" path="plats_a_emporter" element={<Emporter />} />
-        <Route key="4" path="cocktail_dinatoires" element={<Cocktails />} />
+        <Route key="3" path="page-1" element={<CustomPage name={"page-1"}/>} />
+        <Route key="4" path="page-2" element={<CustomPage name={"page-2"}/>} />
         <Route key="5" path="pizza_du_moment" element={<SurCommande />} />
         <Route key="6" path="fournisseurs" element={<Fournisseurs />} />
         <Route key="7" path="informations" element={<Informations />} />
@@ -82,7 +81,6 @@ function Index() {
 
   fournisseurs = filterFournisseursMainPage(fournisseurs);
   let pizzasMainPage = filterMainPagePizzas(pizzas);
-
 
   let pizzaMomentUrl = filterPizzaDuMoment(pizzas)?.attributes.image.data.attributes.url;
 

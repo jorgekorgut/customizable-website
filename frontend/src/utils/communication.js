@@ -3,6 +3,7 @@ import { useState , useEffect } from 'react';
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
 
 export const baseURL = "https://modif.o-kiosque.fr";
+//export const baseURL = "http://localhost:1337";
 
 const checkStatus = (resp) => {
   if (resp.status >= 200 && resp.status < 300) {
