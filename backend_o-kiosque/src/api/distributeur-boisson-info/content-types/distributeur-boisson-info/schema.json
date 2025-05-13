@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "distributeur_boisson_infos",
+  "info": {
+    "singularName": "distributeur-boisson-info",
+    "pluralName": "distributeur-boisson-infos",
+    "displayName": "Distributeur_boisson_info"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Addresse": {
+      "type": "string"
+    }
+  }
+}

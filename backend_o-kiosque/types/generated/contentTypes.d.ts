@@ -820,6 +820,39 @@ export interface ApiDistributeurDistributeur extends Schema.CollectionType {
   };
 }
 
+export interface ApiDistributeurBoissonInfoDistributeurBoissonInfo
+  extends Schema.SingleType {
+  collectionName: 'distributeur_boisson_infos';
+  info: {
+    singularName: 'distributeur-boisson-info';
+    pluralName: 'distributeur-boisson-infos';
+    displayName: 'Distributeur_boisson_info';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Titre: Attribute.String & Attribute.Required;
+    Description: Attribute.Text;
+    Photo: Attribute.Media;
+    Addresse: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::distributeur-boisson-info.distributeur-boisson-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::distributeur-boisson-info.distributeur-boisson-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDistributeurInfoDistributeurInfo extends Schema.SingleType {
   collectionName: 'distributeur_infos';
   info: {
@@ -1194,6 +1227,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::distributeur.distributeur': ApiDistributeurDistributeur;
+      'api::distributeur-boisson-info.distributeur-boisson-info': ApiDistributeurBoissonInfoDistributeurBoissonInfo;
       'api::distributeur-info.distributeur-info': ApiDistributeurInfoDistributeurInfo;
       'api::etablissement.etablissement': ApiEtablissementEtablissement;
       'api::fournisseur.fournisseur': ApiFournisseurFournisseur;
