@@ -36,8 +36,8 @@ export function NavigationBarHeader(props) {
     const isPairAddPages = countPages % 2 === 0;
 
     return (<header>
-        <Link to="/"><Logo/></Link>
-        <nav>
+        <Link to="/"><Logo className="h-96"/></Link>
+        <nav className="text-6xl">
             <Link to="/pizzas" className="pizzas nav_element color-red">Pizzas</Link>
             {
                 showPage1 &&
@@ -49,7 +49,8 @@ export function NavigationBarHeader(props) {
             }
             <Link to="/fournisseurs" className={`fournisseurs nav_element ${isPairAddPages ? 'color-green' : 'color-red'}`}>Fournisseurs</Link>
             <Link to="/informations" className={`informations nav_element ${isPairAddPages ? 'color-red'   : 'color-green'}`}>Informations</Link>
-            <Link to="/distributeur" className={`distributeur nav_element ${isPairAddPages ? 'color-green' : 'color-red'}`}>Distributeur</Link>
+            <Link to="/distributeur-pizza" className={`distributeur nav_element ${isPairAddPages ? 'color-green' : 'color-red'}`}>Distributeur à Pizzas</Link>
+            <Link to="/distributeur-boisson" className={`distributeur nav_element ${isPairAddPages ? 'color-red' : 'color-green'}`}>Distributeur à Boissons</Link>
         </nav>
     </header>);
 }

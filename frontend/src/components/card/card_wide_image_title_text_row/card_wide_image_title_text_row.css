@@ -1,0 +1,115 @@
+@media only screen and
+	(max-width:1400px){
+	#root{
+		--maxwidthAdjust:420px;
+        --widthAdjust: 80%;
+        --wrapAdjust: wrap;
+        --noWrapTextAdjust: none;
+        --centerAdjust:center;
+        --marginAdjust: 0;
+        --alignAdjust: center;
+	}
+
+    .card_wide_row .content_holder h1{
+        font-size: var(--font-size_m) !important;
+    }
+
+    .card_wide_row .content_holder .description p{
+    font-size: var(--font-size_s) !important;
+    margin: 0;
+    }
+
+    .card_wide_row .content_holder .content_footer p{
+    font-size: var(--font-size_s) !important;
+    margin: 0;
+    }
+}
+
+.card_wide_row .content_holder h1{
+    white-space: var(--noWrapTextAdjust,nowrap);
+}
+
+.card_wide_row{
+    width:var(--widthAdjust, 40%);
+    background-color: var(--color_background);
+    box-shadow: var(--box-shadow);
+    margin: 20px 1% 20px 1%;
+    border-radius: 10px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: var(--alignAdjust,flex-start);
+    max-width:var(--maxwidthAdjust,none);
+
+    align-items: center;
+}
+
+.card_wide_row .description{
+    margin-right: 10px;
+    text-align: center;
+}
+
+.card_wide_row .content_holder h1{
+    text-align: center;
+    margin-right: 10px;
+    font-size: var(--font-size_l);
+}
+
+.card_wide_row .image_holder_wide {
+    margin-bottom: var(--marginAdjust,20px);
+}
+
+.card_wide_row .content_holder{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    margin:10px;
+    font-size: var(--font-size_m);
+}
+
+.card_wide_row .content_holder .description{
+    flex-grow: 1;
+    
+    font-size: var(--font-size_m);
+}
+
+.card_wide_row .content_holder .description p{
+    margin: 0;
+}
+
+.card_wide_row .content_holder .content_footer{
+    font-weight: bold;
+    display: flex;
+    justify-content: end;
+    margin-top:10px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.card_wide_row .content_holder .content_footer p {
+    font-size: var(--font-size_s);
+    margin: 0;
+}
+
+.image_holder_wide{
+    display:flex;
+    justify-content: flex-start;
+    margin: 20px;
+  }
+  
+  @media only screen and
+      (max-width:1000px ){
+      #root{
+          --image_adjust_width: 100%;
+          --image_adjust_height: auto;
+      }
+  }
+  
+  .image_holder_wide img{
+    height: var(--image_adjust_height, max(160px,min(15vw, 300px)));
+    width:var(--image_adjust_width,auto);
+    aspect-ratio: 2;
+    object-fit: cover;
+    align-items: left;
+    border-radius: 15px;
+  }

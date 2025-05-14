@@ -3,8 +3,10 @@ import "./distributeur.css";
 
 //New Imports
 import { CardHolder } from "components/card/card_holder/card_holder";
+import { CardHolderRow } from "components/card/card_holder_row/card_holder_row";
 import { CardWideImageTilteText } from "components/card/card_wide_image_title_text/card_wide_image_title_text.js";
 import { CardWideImageTilteTextDate } from "components/card/card_wide_image_title_text_date/card_wide_image_title_text_date";
+import { CardWideImageTilteTextRow } from "components/card/card_wide_image_title_text_row/card_wide_image_title_text_row";
 import { Footer } from "components/footer/footer.js";
 import { NavigationBarHeader } from "components/navbar/navbar_pizza";
 import { Loading } from "pages/loading/loading";
@@ -26,7 +28,7 @@ export function Distributeur() {
     window.errorDistributeurInfo,
     window.dataDistributeurInfo,
   ] = useFetch("api/distributeur-info?populate=*", window.dataDistributeurInfo);
-  // Distributeur_boisson_info
+  
   [
     window.loadingDistributeurBoissonInfo,
     window.errorDistributeurBoissonInfo,
@@ -63,8 +65,6 @@ export function Distributeur() {
   let phone = etablissement.attributes.Telephone;
   let adress = etablissement.attributes.Adresse;
 
-  console.log(window.dataDistributeurBoissonInfo)
-
   return (
     <>
       <Transitions>
@@ -84,20 +84,6 @@ export function Distributeur() {
                 : null
             }
           ></CardWideImageTilteText>
-          <CardWideImageTilteTextDate
-            title={boisson.attributes.Titre}
-            description={boisson.attributes.Description}
-            src={
-              boisson.attributes.Photo.data != null
-                ? baseURL + boisson.attributes.Photo.data.attributes.url
-                : null
-            }
-            footer={
-              boisson.attributes.Adresse != null
-                ? boisson.attributes.Adresse
-                : null
-            }
-          ></CardWideImageTilteTextDate>
         </CardHolder>
 
         <CardHolder>

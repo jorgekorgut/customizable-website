@@ -1,0 +1,15 @@
+@media only screen and
+	(max-width:1000px){
+	#root{
+        --wrapAdjust: wrap;
+        --directionAdjust: column;
+	}
+}
+
+.card_holder_row{
+    display: flex;
+    flex-wrap: var(--wrapAdjust, nowrap);
+    flex-direction: var(--directionAdjust, row);
+    justify-content: space-around;
+    margin:calc(2*var(--margin));
+}

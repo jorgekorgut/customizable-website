@@ -1,6 +1,6 @@
-import "./card_wide_image_title_text.css";
-export function CardWideImageTilteText(props) {
-    return (<div className="card_wide">
+import "./card_wide_image_title_text_row.css";
+export function CardWideImageTilteTextRow(props) {
+    return (<div className="card_wide_row">
         <div className="image_holder_wide">
             {
                 props.src &&
