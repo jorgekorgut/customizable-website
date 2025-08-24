@@ -1096,6 +1096,78 @@ export interface ApiPage2Page2 extends Schema.SingleType {
   };
 }
 
+export interface ApiPage3Page3 extends Schema.SingleType {
+  collectionName: 'page_3s';
+  info: {
+    singularName: 'page-3';
+    pluralName: 'page-3s';
+    displayName: 'Page_3';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Visible: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Titre_navigation: Attribute.String;
+    Description_Petite: Attribute.String;
+    Photo: Attribute.Media;
+    Titre: Attribute.String;
+    Description_Grande: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-3.page-3',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-3.page-3',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPage4Page4 extends Schema.SingleType {
+  collectionName: 'page_4s';
+  info: {
+    singularName: 'page-4';
+    pluralName: 'page-4s';
+    displayName: 'Page_4';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Visible: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Titre_navigation: Attribute.String;
+    Description_Petite: Attribute.String;
+    Photo: Attribute.Media;
+    Titre: Attribute.String;
+    Description_Grande: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-4.page-4',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-4.page-4',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiParametreParametre extends Schema.SingleType {
   collectionName: 'parametres';
   info: {
@@ -1235,6 +1307,8 @@ declare module '@strapi/types' {
       'api::ouverture.ouverture': ApiOuvertureOuverture;
       'api::page-1.page-1': ApiPage1Page1;
       'api::page-2.page-2': ApiPage2Page2;
+      'api::page-3.page-3': ApiPage3Page3;
+      'api::page-4.page-4': ApiPage4Page4;
       'api::parametre.parametre': ApiParametreParametre;
       'api::pizza.pizza': ApiPizzaPizza;
       'api::pizza-sur-commande.pizza-sur-commande': ApiPizzaSurCommandePizzaSurCommande;

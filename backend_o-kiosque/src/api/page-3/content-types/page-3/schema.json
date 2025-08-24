@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_3s",
+  "info": {
+    "singularName": "page-3",
+    "pluralName": "page-3s",
+    "displayName": "Page_3"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Visible": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Titre_navigation": {
+      "type": "string"
+    },
+    "Description_Petite": {
+      "type": "string"
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Titre": {
+      "type": "string"
+    },
+    "Description_Grande": {
+      "type": "richtext"
+    }
+  }
+}
