@@ -51,11 +51,13 @@ root.render(
         <Route key="2" path="pizzas" element={<Pizzas />} />
         <Route key="3" path="page-1" element={<CustomPage name={"page-1"} />} />
         <Route key="4" path="page-2" element={<CustomPage name={"page-2"} />} />
-        <Route key="5" path="pizza_du_moment" element={<SurCommande />} />
-        <Route key="6" path="fournisseurs" element={<Fournisseurs />} />
-        <Route key="7" path="informations" element={<Informations />} />
-        <Route key="8" path="distributeur-pizza" element={<Distributeur />} />
-        <Route key="8" path="distributeur-boisson" element={<DistributeurBoisson />} />
+        <Route key="5" path="page-3" element={<CustomPage name={"page-3"} />} />
+        <Route key="6" path="page-4" element={<CustomPage name={"page-4"} />} />
+        <Route key="7" path="pizza_du_moment" element={<SurCommande />} />
+        <Route key="8" path="fournisseurs" element={<Fournisseurs />} />
+        <Route key="9" path="informations" element={<Informations />} />
+        <Route key="10" path="distributeur-pizza" element={<Distributeur />} />
+        <Route key="11" path="distributeur-boisson" element={<DistributeurBoisson />} />
       </Routes>
     </BrowserRouter>
   </AnimatePresence>
