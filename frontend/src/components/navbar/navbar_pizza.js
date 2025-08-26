@@ -58,7 +58,7 @@ export function NavigationBarHeader(props) {
     return (<header>
         <Link to="/"><Logo className="h-96"/></Link>
         <nav className="text-6xl">
-            <Link to="/pizzas" className="pizzas nav_element color-red">Pizzas</Link>
+            <Link to="/pizzas" className="pizzas nav_element color-red">La Carte</Link>
             {
                 customPages
             }
